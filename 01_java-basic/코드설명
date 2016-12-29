@@ -1,0 +1,90 @@
+[day03]
+Test01 : 기본형에 대한 형변환 연습
+Test02 : final상수와 escape문자
+Test03 : 3항 연산자, 산술연산자, 비교연산자, 논리연산자, 배정연산자
+Test04 : 조건식 if else
+Test05 : 조건식 switch
+Test05 : 조건식 switch
+Test06 : Scanner 메소드
+Test07 : Random 메소드
+
+[day04]  
+Test01 : for문
+Test02 : 중첩for문
+Test03 : break, continue
+Test04 : while문
+
+[day05]
+Test01 : 배열선언
+Test02 : 중첩for문
+Test03 : break, continue
+Test04 : while문
+
+[day06]  
+Test01 : 객체생성
+
+[day07]  
+Test01 : 메소드 호출
+Test02 : 메소드 호출
+Test03 : 메소드 호출
+
+[day08]  
+Test01 : String객체생성방법
+Test02 : StringBuffer 와 StringBuilder
+Test03 : String클래스 메소드사용
+Test04 : String클래스 메소드 : hasNextLine() | + 파일읽어오기
+
+[day09]  
+Test01 : 생성자함수 
+Test02 : 생성자함수와 static변수의 호출시기
+Test03 : static 영역에서 non-static(instance)영역의 변수 또는 메서드를 호출
+
+[day10]  
+Test01 : 
+Test02 : 
+Test03 : 
+
+[day11]  
+Person : Person클래스 (String이름, int나이) 갖고있는 형태
+Student: Person클래스 상속 (멤버변수 int no추가, 생성자함수로 값초기화 )
+Test01 : Student객체로 toString호출
+Test02 : 
+Test03 : 
+
+[day12]  
+Test01 : 
+Test02 : 
+Test03 : 
+
+[day13]  
+Test01 : 
+Test02 : 
+Test03 : 
+
+[day14]
+Test01 : Date클래스 
+Test02 : Calendar클래스 
+Test03 : Calendar클래스 메소드연습 
+Test04 : SimpleDateFormat연습
+Test05 : Wrapper클래스
+Test06 : 제네릭 예제 (+ box01 ~ box04)
+
+[day15] - Colletions
+Test01 : List클래스 
+Test02 : Set클래스
+Test03 : Map클래스 
+
+[day16] - FileIO
+Test01 : File클래스 
+Test02 : File클래스 -listFiles(), isDirectory(), isFile()
+Test03 : File클래스 -exists(), createNewFile(), delete(), length(),
+				   getPath(), getName(), getParent()
+Test04 : InputStream클래스, InputStreamReader클래스- read()
+Test05 : FileReader클래스 - read(), close() 
+Test06 : FileWriter클래스 - write(), close() 
+Test07 : FileReader클래스 - read(), close() 
+Test08 : FileInputStream클래스, FileOutputStream클래스 - System.currentTimeMillis(), close() 
+Test09 : FileInputStream클래스, FileOutputStream클래스 -byte[] buffer = new byte[32 * 1024], System.currentTimeMillis(), close() 
+Test10 : FileInputStream클래스, FileOutputStream클래스, BufferedInputStream클래스, BufferedOutputStream클래스- 
+Test11 : FileInputStream클래스, FileOutputStream클래스, BufferedInputStream클래스, BufferedOutputStream클래스- 
+					try - catch문 변형(finally에서 close()안하는 방법) 
