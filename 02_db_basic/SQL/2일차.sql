@@ -143,7 +143,7 @@ SELECT DEPARTMENT_ID, MAX(SALARY) max_sal
   
   
   
-  =========================================================
+===========================================================
 HAVING : 그룹에 대한 제약을 처리한다.(조건)
 ===========================================================
 
@@ -169,6 +169,150 @@ order by department_id;
 --실행순서
 FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY
 
+
+
+===========================================================
+내장함수 : 오라클에서 제공하는 함수
+===========================================================
+
+--문자함수
+
+select last_name, lower(last_name), upper(last_name), concat(last_name, '사원') --합성연산자와 같다.last_name || '사원'
+from employees;
+
+select last_name, first_name, concat(upper(last_name), first_name) 
+from employees;
+
+select last_name,
+		substr(last_name, 1, 2),
+		'20161229',
+		substr('20161229',1,4),substr('20161229',5,2),substr('20161229',7,2)
+from employees;
+
+select last_name, length(last_name),
+		lpad(last_name, 10, '*'), rpad(last_name, 10, '*') --lpad와 rpad 각각 왼쪽, 오른쪽에 지정한 크기만큼 원하는 문자를 삽입
+from employees 
+
+select last_name,
+		translate(last_name, 'AB', 'uk'), 	--문자당바꾸기 : A를 u로 B를 k로 바꾼다
+		replace(last_name, 'AB', 'uk')  	--AB를 찾아 uk로 바꾼다.
+from employees;
+
+
+--숫자형 함수
+select 'a'
+from employees
+where department_id = 30;
+
+
+select abs(100), abs(-100)     --테이블의 크기만큼 결과값이 반환된다.
+from employees;
+
+select abs(100), abs(-100)
+from dual;                      --dual 테스트용 더미테이블
+
+
+select ceil(1.1), floor(1.1), sign(-12), sign(0), sign(12) -- ceil 입력값보다 크거나 같은 가장작은정수, 
+from dual;													--floor 입력값보다 작거나같은 가장작은정수, sign() 입력값의 양수,음수,0 값을 판별
+
+select round(73.727),round(73.727, 2),round(73.727, -2),  -- round반올림, trunc버림 //+는 소수점오른쪽으로 //-는 소수점을 왼쪽으로 각각 이동
+		trunc(73.727),trunc(73.727, 2),trunc(73.727, -2)
+from dual;
+
+
+--날짜형 함수
+
+select sysdate, add_months(sysdate, 1), add_months(sysdate, -1)
+from dual;
+
+
+--각 사원의 입사일로 부터 1년이 되는 날짜를 출력하시오.
+select employee_id, add_months(hire_date, 12)
+from employees;
+
+select last_name, months_between(sysdate, hire_date)
+from employees;
+
+select sysdate, last_day(sysdate)
+from employees;
+
+--날짜 + 숫자 => 날짜, 날짜 - 숫자 => 날짜, 날짜 - 날짜 => 숫자
+select sysdate + 7, sysdate - 7, sysdate + 5/24
+from dual;
+
+--각사원의 근무일수를 출력
+select last_name, trunc(sysdate -  hire_date)
+from employees;
+
+--변환형 함수
+
+-- to_date : 문자 -> 날짜
+
+-- to_char : 날짜 -> 문자
+
+-- to_number : 날짜 -> 문자, 숫자 -> 문자
+
+select to_char(sysdate,'yyyy-mm-dd hh24:mi:ss'),
+		to_date('2016-11-20', 'yyyy-mm-dd')
+from dual;
+
+insert into tb_board(no, title, writer, content, reg_date) 
+values(4, 'a', 'b', 'c', to_date('2011-09-17', 'yyyy-mm-dd'));
+
+select * from tb_board;
+
+--패턴문자 : 9(자리수), 0(자리수- 남는 자리에 0을 표시), ","
+select to_char(1000000000, '999,999,999,999'),
+		to_number('51,000', '99,999')
+from dual;
+
+select last_name
+from employees
+where to_char(hire_date, 'mm') = to_char(sysdate, 'mm');
+
+
+--기타함수 : decode, case ~ end - 기본적인 통계정보 추출시..
+
+select job_id, decode(job_id, 'IT_PROG', '개발자' 
+							 ,'SA_MAN', '세일즈'   --같은지만 비교 가능
+							 ,'그냥 직원') as job_type
+from employees;
+
+
+select job_id, 
+		case job_id when 'IT_PROG' then '개발자' 
+					when 'SA_MAN' then '세일즈'   --같은지만 비교 가능
+					else '그냥 직원'
+	    end as job_type
+from employees;
+
+
+select job_id, 
+		case when job_id = 'IT_PROG' then '개발자' 
+			 when job_id = 'SA_MAN' then '세일즈'   --같은지만 비교 가능
+					else '그냥 직원'
+	    end as job_type
+from employees;
+
+
+--사원의 급여에 따라서 다음과 같이 출력하는 쿼리 작성
+--급여가 10000 이상일 경우 "우후..."
+--급여가 5000 이상일 경우 "아이..."
+--급여가 5000 미만일 경우 "에이..."
+
+select last_name, salary,
+		case when salary >= 10000 then '우후...'
+		     when salary >= 5000 then '아이...'
+			 else '에이...'
+		end as reaction
+from employees;
+
+
+
+
+
+
+select * from employees;
 
 
 
