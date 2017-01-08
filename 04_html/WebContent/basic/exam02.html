@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!--절대경로 찾기-->
+	<a href="http://localhost:8000/04_html/first.html">first.html파일로 이동하기</a>
+	<br>
+	<!--
+		컨텐트 주석문 : 브라우저 화면에 출력되지 않는다.
+	  -->
+	  <!--상대경로찾기
+	  	1. /로 시작
+	  		: 절대경로에서 포트번호까지를 제외한다.
+	  	2. /로 시작하지 않는 경우
+	  		:현재 파일이 담겨있는 패스가 기준
+	  	-->
+	<a href="/04_html/first.html">first.html파일로 이동하기</a>
+	<br>
+	<a href="../first.html">first.html파일로 이동하기</a>
+	<br>
+	<a href="exam01.html">exam01.html파일로 이동하기</a>
+	<br>
+	<a href=../quiz/aaa/success.html>success.html파일로 이동하기</a>
+	<br>
+	<a href="http://naver.com"><img src="/04_html/gong.jpg"></a>
+</body>
+</html>

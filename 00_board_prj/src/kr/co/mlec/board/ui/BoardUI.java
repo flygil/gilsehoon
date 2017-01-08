@@ -2,14 +2,19 @@ package kr.co.mlec.board.ui;
 
 import java.util.Scanner;
 
-import kr.co.mlec.board.dao.BoardDAO;
+import kr.co.mlec.board.dao.BoardMapper;
 
 public class BoardUI {
 	
 	private Scanner sc = new Scanner(System.in);
-	private BoardDAO dao;
+	private BoardMapper dao;
 	public BoardUI() {
-		dao = new BoardDAO();
+		try {
+			dao = new BoardMapper();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 	public void execute() {

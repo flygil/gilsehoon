@@ -102,23 +102,18 @@ where e.hire_date < (select m.hire_date
 					 where e.manager_id = m.employee_id)
 order by e.hire_date; 
 					
---11.?
-select 	m.employee_id,
-		m.last_name,
-		(select count(*) from employees m )	
-from employees m
-inner join employees e
-		on m.employee_id = e.employee_id
-where  (select e.manager_id, count(*) from employees e 
-						inner join employees m
-								on e.employee_id = m.employee_id
-								group by department_id
-								having e.manager_id = m.employee_id;) >= 8; 	
-					
+--11.
+select 	a.employee_id,
+		a.last_name,
+		count(*) as 직속부하직원수
+from  employees a
+inner join employees b
+		on a.employee_id = b.manager_id
+group by a.employee_id, a.last_name
+having count(*) >= 8
+order by 직속부하직원수 desc;
 
-								
-								
-								select last_name,count(*) from employees;
+
 --12.
 select 	e.employee_id 사번, 
 		e.last_name 이름,
@@ -148,20 +143,44 @@ where j.job_title like 'Sales%'
 	where e.department_id = '100');
 
 
---14.?
+--14.
 
 select l.city 도시, 
-		avg(e.salary) 급여
-		-- 근무인원수
-from locations l
+		avg(e.salary) 급여,
+		count(*) 근무인원수
+from employees e
 inner join departments d
+		on e.department_id = d.department_id
+inner join locations l
 		on l.location_id = d.location_id
-inner join employees e
-		on d.department_id = e.department_id
-group by l.city
-having  (select city, count(*) 
-		from locations l 
-		group by city;) > 10;
+group by l.city 
+having count(*) > 10 
+order by 급여 ;
+
+--15.
+select max(b.salary) as salary
+from employees a, employees b
+group by b.employee_id
+order by salary desc;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -51,7 +51,7 @@ public class Test03 {
 		System.out.println(Arrays.toString(result));*/
 			
 			
-		/*
+	
 		//String	substring(int beginIndex)
 		//-Returns a string that is a substring of this string.
 		//String	substring(int beginIndex, int endIndex)
@@ -62,7 +62,7 @@ public class Test03 {
 	//	System.out.println(result);
 		String result = s.substring(2,3);
 		System.out.println(result);
-		*/
+		
 		
 		
 		
@@ -142,9 +142,9 @@ public class Test03 {
 		//Returns the index within this string of the first occurrence of the specified substring.
 		//int	indexOf(String str, int fromIndex)
 		//Returns the index within this string of the first occurrence of the specified substring, starting at the specified index.
-		String s = "java is easy";
-		int index = s.indexOf("va");
-		System.out.println("indexOf : " + index);
+	//	String s = "java is easy";
+	//	int index = s.indexOf("va");
+	//	System.out.println("indexOf : " + index);
 	//	index = s.indexOf("a", index + 1);
 	//	System.out.println("indexOf : " + index);
 	//	index = s.indexOf("a", index  + 1);

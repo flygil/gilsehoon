@@ -265,7 +265,7 @@ where  salary  >  (select min(salary)  --싱글로우 서브쿼리
 --멀티컬럼 서브쿼리  : 서브쿼리의 결과가 여러개의 컬럼을 리턴
 select department_id, last_name, salary
 from employees
-where salary in (select department_id, min(salary)
+where (department_id, salary) in (select department_id, min(salary)
 				 from EMPLOYEES
 				 group by department_id);
 

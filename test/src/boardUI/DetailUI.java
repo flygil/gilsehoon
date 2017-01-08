@@ -24,6 +24,6 @@ public class DetailUI extends BaseUI {
 		}else {
 			System.out.println("선택한 게시물이 존재하지 않습니다.");
 		}
-		System.out.println("---------------------");
+		System.out.println("------------------------------------------");
 	}
 }
