@@ -1,0 +1,20 @@
+package network.webserver;
+
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+
+public class URLEncodeDecodeTest {
+	public static void main(String[] args) {
+		String word = "자바";
+		try {
+			String encodeWord = URLEncoder.encode(word, "utf-8");
+			System.out.println(encodeWord);
+			
+			
+			String decodeWord = URLDecoder.decode(encodeWord, "utf-8");
+			System.out.println(decodeWord);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+}
